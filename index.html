@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardinal &amp; Crumb Bakehouse — Louisville, KY</title>
+<meta name="description" content="European-style breads and pastries, baked every morning in Louisville's Highlands. Open Tue–Sun from 7 AM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --espresso:#231610;
+    --crust:#B8792F;
+    --butter:#F6E9CE;
+    --flour:#FDFAF3;
+    --cardinal:#A32638;
+    --ink:#3A2A1E;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  body{font-family:'Work Sans',sans-serif;color:var(--ink);background:var(--flour);line-height:1.6}
+  h1,h2,h3{font-family:'Fraunces',serif;line-height:1.1}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+
+  /* ---------- header ---------- */
+  header{position:sticky;top:0;z-index:50;background:var(--flour);border-bottom:1px solid #E8DCC3}
+  .nav{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.25rem}
+  .wordmark{font-family:'Fraunces',serif;font-weight:900;font-size:1.25rem;letter-spacing:-.02em;text-decoration:none}
+  .wordmark span{color:var(--cardinal)}
+  .nav-links{display:flex;gap:1.5rem;list-style:none;font-weight:500;font-size:.95rem}
+  .nav-links a{text-decoration:none;opacity:.85}
+  .nav-links a:hover,.nav-links a:focus-visible{opacity:1;color:var(--cardinal)}
+  .call-btn{background:var(--cardinal);color:#fff;padding:.5rem 1.1rem;border-radius:999px;text-decoration:none;font-weight:600;font-size:.95rem}
+  .call-btn:hover{background:#8C1F30}
+  @media(max-width:640px){.nav-links{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{background:var(--espresso);color:var(--butter);overflow:hidden}
+  .hero-inner{max-width:1080px;margin:0 auto;padding:5rem 1.25rem 4rem;display:grid;gap:2.5rem;grid-template-columns:1.2fr .8fr;align-items:center}
+  @media(max-width:820px){.hero-inner{grid-template-columns:1fr;padding-top:3.5rem}}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.4rem);font-weight:900;letter-spacing:-.02em}
+  .hero h1 em{font-style:italic;color:var(--crust)}
+  .hero p.lede{margin-top:1.25rem;font-size:1.15rem;max-width:34ch;color:#E7D6B5}
+  .hero-ctas{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap}
+  .btn-primary{background:var(--cardinal);color:#fff;padding:.85rem 1.6rem;border-radius:999px;text-decoration:none;font-weight:600}
+  .btn-primary:hover{background:#8C1F30}
+  .btn-ghost{border:1.5px solid var(--crust);color:var(--butter);padding:.85rem 1.6rem;border-radius:999px;text-decoration:none;font-weight:600}
+  .btn-ghost:hover{background:rgba(184,121,47,.15)}
+  .hours-pill{margin-top:2.2rem;display:inline-flex;align-items:center;gap:.6rem;font-size:.9rem;color:#CBB68C}
+  .dot{width:.55rem;height:.55rem;border-radius:50%;background:#7FB069}
+  /* photo placeholder — swap for a real photo on a client build */
+  .hero-photo{aspect-ratio:4/5;border-radius:1rem;background:
+    radial-gradient(circle at 30% 25%, #C98A3E 0 18%, transparent 19%),
+    radial-gradient(circle at 68% 40%, #A66A28 0 14%, transparent 15%),
+    radial-gradient(circle at 45% 70%, #8F5722 0 20%, transparent 21%),
+    linear-gradient(160deg,#3A2517,#57381F 65%,#6B4526);
+    border:1px solid #57381F;display:flex;align-items:end;padding:1rem}
+  .hero-photo small{color:#CBB68C;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+
+  /* ---------- bake timeline (signature) ---------- */
+  .bakeline{background:var(--crust);color:var(--espresso)}
+  .bakeline-inner{max-width:1080px;margin:0 auto;padding:1.1rem 1.25rem;display:flex;gap:2.5rem;overflow-x:auto;white-space:nowrap;font-weight:600;font-size:.95rem;align-items:center}
+  .bakeline-inner::-webkit-scrollbar{display:none}
+  .bake-item b{font-family:'Fraunces',serif;font-weight:900;margin-right:.45rem}
+  .bakeline-label{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;border:1.5px solid var(--espresso);padding:.25rem .6rem;border-radius:999px;flex-shrink:0}
+
+  /* ---------- menu ---------- */
+  section{padding:4.5rem 1.25rem}
+  .wrap{max-width:1080px;margin:0 auto}
+  .eyebrow{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cardinal);font-weight:600}
+  h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-top:.4rem}
+  .menu-grid{margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2.2rem 3rem}
+  .menu-col h3{font-size:1.15rem;font-weight:700;color:var(--cardinal);border-bottom:2px solid var(--butter);padding-bottom:.5rem}
+  .menu-item{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px dashed #E4D5B8}
+  .menu-item .nm{font-weight:500}
+  .menu-item .ds{font-size:.85rem;color:#7A6A55;margin-top:.1rem}
+  .menu-item .pr{font-family:'Fraunces',serif;font-weight:700;white-space:nowrap}
+
+  /* ---------- about ---------- */
+  .about{background:var(--butter)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr}}
+  .about p{margin-top:1rem;max-width:52ch}
+  .about-photo{aspect-ratio:1/1;border-radius:1rem;background:
+    radial-gradient(circle at 60% 30%, #D9A559 0 22%, transparent 23%),
+    linear-gradient(200deg,#B8792F,#8F5722);
+    border:1px solid #C89A5B;display:flex;align-items:end;padding:1rem}
+  .about-photo small{color:#4A2F16;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+
+  /* ---------- visit ---------- */
+  .visit-grid{margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2rem}
+  .visit-card h3{font-size:1.05rem;font-weight:700;color:var(--cardinal)}
+  .visit-card p,.visit-card li{margin-top:.5rem;font-size:.98rem}
+  .visit-card ul{list-style:none}
+  .visit-card li{display:flex;justify-content:space-between;border-bottom:1px dashed #E4D5B8;padding:.3rem 0}
+  .map-frame{margin-top:2.5rem;border-radius:1rem;overflow:hidden;border:1px solid #E4D5B8;aspect-ratio:16/6;min-height:260px}
+  .map-frame iframe{width:100%;height:100%;border:0}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--espresso);color:#CBB68C;padding:2.5rem 1.25rem;text-align:center;font-size:.9rem}
+  footer .wordmark{color:var(--butter);font-size:1.1rem}
+  footer p{margin-top:.7rem}
+
+  :focus-visible{outline:2.5px solid var(--cardinal);outline-offset:2px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav" aria-label="Main">
+    <a class="wordmark" href="#top">Cardinal <span>&amp;</span> Crumb</a>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="call-btn" href="tel:+15025550143">Call to order</a>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>Bread worth<br>crossing <em>town for.</em></h1>
+        <p class="lede">European-style loaves and pastries, mixed by hand and baked every morning in the Highlands.</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="tel:+15025550143">Order ahead — (502) 555-0143</a>
+          <a class="btn-ghost" href="#menu">See the menu</a>
+        </div>
+        <div class="hours-pill"><span class="dot" aria-hidden="true"></span> Open today 7 AM – 2 PM · Tue–Sun</div>
+      </div>
+      <div class="hero-photo" role="img" aria-label="Placeholder for a photo of fresh loaves">
+        <small>[ client photo goes here ]</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- signature: the daily bake timeline -->
+  <div class="bakeline" aria-label="Today's bake schedule">
+    <div class="bakeline-inner">
+      <span class="bakeline-label">Out of the oven</span>
+      <span class="bake-item"><b>5:30a</b> Sourdough &amp; rye</span>
+      <span class="bake-item"><b>6:45a</b> Croissants &amp; kouign-amann</span>
+      <span class="bake-item"><b>8:00a</b> Baguettes</span>
+      <span class="bake-item"><b>9:30a</b> Cinnamon knots</span>
+      <span class="bake-item"><b>11:00a</b> Second baguette bake</span>
+    </div>
+  </div>
+
+  <section id="menu">
+    <div class="wrap">
+      <span class="eyebrow">The Menu</span>
+      <h2>Baked this morning</h2>
+      <div class="menu-grid">
+        <div class="menu-col">
+          <h3>Breads</h3>
+          <div class="menu-item"><div><div class="nm">Country sourdough</div><div class="ds">48-hour ferment, whole loaf</div></div><div class="pr">$9</div></div>
+          <div class="menu-item"><div><div class="nm">Seeded rye</div><div class="ds">Caraway, dark and dense</div></div><div class="pr">$8</div></div>
+          <div class="menu-item"><div><div class="nm">Baguette</div><div class="ds">Baked twice daily</div></div><div class="pr">$4.50</div></div>
+          <div class="menu-item"><div><div class="nm">Challah <span class="ds">(Fri only)</span></div></div><div class="pr">$8</div></div>
+        </div>
+        <div class="menu-col">
+          <h3>Pastry</h3>
+          <div class="menu-item"><div><div class="nm">Butter croissant</div></div><div class="pr">$4</div></div>
+          <div class="menu-item"><div><div class="nm">Kouign-amann</div><div class="ds">Caramelized, salted</div></div><div class="pr">$5</div></div>
+          <div class="menu-item"><div><div class="nm">Cinnamon knot</div></div><div class="pr">$4.50</div></div>
+          <div class="menu-item"><div><div class="nm">Seasonal danish</div><div class="ds">Ask what's in the case</div></div><div class="pr">$5</div></div>
+        </div>
+        <div class="menu-col">
+          <h3>Coffee</h3>
+          <div class="menu-item"><div><div class="nm">Drip</div><div class="ds">Local roast, bottomless-ish</div></div><div class="pr">$3</div></div>
+          <div class="menu-item"><div><div class="nm">Latte</div></div><div class="pr">$5</div></div>
+          <div class="menu-item"><div><div class="nm">Cortado</div></div><div class="pr">$4.50</div></div>
+          <div class="menu-item"><div><div class="nm">Cold brew</div></div><div class="pr">$4.75</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <span class="eyebrow">About us</span>
+        <h2>Small ovens, long ferments</h2>
+        <p>Cardinal &amp; Crumb started as a farmers-market stand and a two-rack oven. We still bake the same way: naturally leavened doughs, Kentucky-milled flour where we can get it, and nothing that can't be pronounced.</p>
+        <p>Come early for sourdough — when the day's loaves are gone, they're gone.</p>
+      </div>
+      <div class="about-photo" role="img" aria-label="Placeholder for a photo of the bakers at work">
+        <small>[ client photo goes here ]</small>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap">
+      <span class="eyebrow">Visit</span>
+      <h2>Find us on Bardstown Road</h2>
+      <div class="visit-grid">
+        <div class="visit-card">
+          <h3>Address</h3>
+          <p>1234 Bardstown Rd<br>Louisville, KY 40204</p>
+          <p><a href="tel:+15025550143">(502) 555-0143</a></p>
+        </div>
+        <div class="visit-card">
+          <h3>Hours</h3>
+          <ul>
+            <li><span>Tue – Fri</span><span>7 AM – 2 PM</span></li>
+            <li><span>Sat – Sun</span><span>8 AM – 3 PM</span></li>
+            <li><span>Monday</span><span>Closed (dough rests, we rest)</span></li>
+          </ul>
+        </div>
+        <div class="visit-card">
+          <h3>Ordering</h3>
+          <p>Call ahead for whole loaves and pastry boxes. Large orders need 48 hours' notice.</p>
+        </div>
+      </div>
+      <div class="map-frame">
+        <iframe title="Map to Cardinal and Crumb Bakehouse"
+          src="https://www.google.com/maps?q=Bardstown+Rd,+Louisville,+KY&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a class="wordmark" href="#top">Cardinal <span style="color:var(--cardinal)">&amp;</span> Crumb</a>
+  <p>Demo site built by Davin Willis — this is a fictional bakery.<br>
+     Real business? I build sites like this. <a href="https://www.linkedin.com/in/davin-willis/">Get in touch.</a></p>
+</footer>
+
+</body>
+</html>
