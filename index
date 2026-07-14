@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Sites — Davin Willis</title>
+<meta name="description" content="Example websites built for Louisville small businesses by Davin Willis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#101418; --card:#1A2128; --line:#2A343E;
+    --text:#E8EDF2; --dim:#93A1AE; --accent:#4FC3F7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+  main{flex:1;max-width:760px;margin:0 auto;padding:3.5rem 1.25rem;width:100%}
+  h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(1.9rem,5vw,2.6rem);letter-spacing:-.01em}
+  .sub{color:var(--dim);margin-top:.7rem;max-width:52ch}
+  .cards{margin-top:2.5rem;display:grid;gap:1rem}
+  .card{display:block;background:var(--card);border:1px solid var(--line);border-radius:.8rem;padding:1.4rem 1.5rem;text-decoration:none;color:inherit;transition:border-color .15s}
+  .card:hover,.card:focus-visible{border-color:var(--accent)}
+  .card .type{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .card h2{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.25rem;margin-top:.3rem}
+  .card p{color:var(--dim);font-size:.95rem;margin-top:.35rem}
+  .card .go{margin-top:.7rem;font-size:.9rem;font-weight:600;color:var(--accent)}
+  footer{border-top:1px solid var(--line);padding:1.8rem 1.25rem;text-align:center;font-size:.88rem;color:var(--dim)}
+  footer a{color:var(--text)}
+  :focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;border-radius:4px}
+</style>
+</head>
+<body>
+<main>
+  <h1>Demo sites</h1>
+  <p class="sub">Example websites I build for Louisville small businesses. Every business below is fictional — yours wouldn't be.</p>
+
+  <div class="cards">
+    <a class="card" href="bakery.html">
+      <span class="type">Bakery · Café</span>
+      <h2>Cardinal &amp; Crumb Bakehouse</h2>
+      <p>Menu, daily bake schedule, hours, tap-to-call ordering, and a map.</p>
+      <span class="go">View demo →</span>
+    </a>
+
+    <a class="card" href="handyman.html">
+      <span class="type">Home services</span>
+      <h2>Level &amp; True Home Repair</h2>
+      <p>Services, straight-price process, reviews, service area, free-estimate call button.</p>
+      <span class="go">View demo →</span>
+    </a>
+  </div>
+</main>
+<footer>
+  Built by <a href="https://www.linkedin.com/in/davin-willis/">Davin Willis</a> · Louisville, KY ·
+  <a href="https://github.com/Davin-Willis">GitHub</a>
+</footer>
+</body>
+</html>
